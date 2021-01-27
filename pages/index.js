@@ -32,6 +32,8 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <title>Quiz Hunter x Hunter</title>
+      <meta property="og:{db.bg}" content="Quiz HxH" key="title" />
       <QuizContainer>
         <Widget>
           <Widget.Header>
