@@ -5,7 +5,7 @@ import {useRouter} from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget/index';
-import QuizLogo from '../src/components/Quizlogo/index';
+import QuizLogo from '../src/components/QuizLogo/index';
 import QuizBackground from '../src/components/QuizBackground/index';
 import Footer from '../src/components/Footer/index';
 import GitHubCorner from '../src/components/GitHubCorner/index';
