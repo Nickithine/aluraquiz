@@ -1,14 +1,11 @@
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Head from 'next/head';
 import db from '../db.json';
-import Widget from '../src/components/Widget/index.js';
-import QuizBackground from '../src/components/QuizBackground/index.js';
-import Footer from '../src/components/Footer/index.js';
-import GitHubCorner from '../src/components/GitHubCorner/index.js';
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+import Widget from '../src/components/Widget/index';
+import QuizBackground from '../src/components/QuizBackground/index';
+import Footer from '../src/components/Footer/index';
+import GitHubCorner from '../src/components/GitHubCorner/index';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -32,8 +29,14 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
-      <title>Quiz Hunter x Hunter</title>
-      <meta property="og:{db.bg}" content="Quiz HxH" key="title" />
+      <Head>
+        <title>Quiz Hunter x Hunter</title>
+        <meta property="og:url" content="https://aluraquiz.nickithine.vercel.app/" />
+        <meta property="og:title" content="Quiz - HunterxHunter" />
+        <meta property="og:description" content="Um quiz feito com muito carinho na Imersão Alura!" />
+        <meta property="og:image" content="https://images6.alphacoders.com/840/thumb-1920-840252.jpg" />
+      </Head>
+
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -55,11 +58,9 @@ export default function Home() {
           </Widget.Content>
 
         </Widget>
-        <Footer>
-
-        </Footer>
+        <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/nickithine"></GitHubCorner>
+      <GitHubCorner projectUrl="https://github.com/nickithine" />
     </QuizBackground>
   );
 }
