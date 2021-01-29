@@ -11,9 +11,6 @@ import GitHubCorner from '../src/components/GitHubCorner/index';
 //   background-image: url(${db.bg});
 //   flex: 1;
 //   background-size: cover;
-//   background-position: center;
-
-// `;
 
 export const QuizContainer = styled.div`
   width: 100%;
