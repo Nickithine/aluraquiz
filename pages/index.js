@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget/index';
@@ -28,6 +28,8 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   const router = useRouter();
+  const [name, setName] = React.useState('');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <Head>
@@ -48,15 +50,19 @@ export default function Home() {
           <Widget.Content>
             <form onSubmit={function (e) {
               e.preventDefault();
-              const name = 'Paulo';
-              router.push(`/quiz?name=${name}`)
+              router.push(`/quiz?name=${name}`);
               console.log('Fazendo uma submissão por meio do react');
               // router manda para a próxima página
             }}
             >
-              <input placeholder="Digite seu nome para jogar ;)" />
-              <button type="submit">
-                Jogar!
+              <input
+                onChange={function (e) {
+                  setName(e.target.value);
+                }}
+                placeholder="Digite seu nome para jogar ;)"
+              />
+              <button type="submit" disabled={name.length === 0}>
+                Bora {name}!
               </button>
             </form>
           </Widget.Content>
